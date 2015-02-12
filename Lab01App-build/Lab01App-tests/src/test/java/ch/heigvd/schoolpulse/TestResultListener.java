@@ -1,5 +1,8 @@
 package ch.heigvd.schoolpulse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -52,6 +55,11 @@ public class TestResultListener extends RunListener {
 
   @Override
   public void testRunFinished(Result result) throws Exception {
+    ObjectMapper mapper = new ObjectMapper();
+    BufferedWriter writer = new BufferedWriter(new FileWriter("/tmp/test-results.json"));
+    mapper.writeValue(writer, result);
+    writer.close();
+        
     LOG.log(Level.INFO, "{0} tests have been run.", result.getRunCount());
     LOG.log(Level.INFO, "{0} failures have been reported", result.getFailureCount());
     for (Failure failure : result.getFailures()) {
