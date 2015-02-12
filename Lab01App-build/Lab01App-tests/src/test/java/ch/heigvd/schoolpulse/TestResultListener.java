@@ -35,8 +35,11 @@ public class TestResultListener extends RunListener {
 
   @Override
   public void testStarted(Description description) throws Exception {
-    LOG.log(Level.INFO, "Test started: {0}", description.getClassName());
-    LOG.log(Level.INFO, System.getProperty("schoolPulseUserId"));
+  }
+
+  @Override
+  public void testRunStarted(Description description) throws Exception {
+    //LOG.log(Level.INFO, System.getProperty("schoolPulseUserId"));
     Event[] payload = new Event[1];
     Event e1 = new Event();
     e1.setSource("RES");
@@ -49,22 +52,11 @@ public class TestResultListener extends RunListener {
   }
 
   @Override
-  public void testRunStarted(Description description) throws Exception {
-    LOG.log(Level.INFO, "Test run started: {0}", description.getClassName());
-  }
-
-  @Override
   public void testRunFinished(Result result) throws Exception {
     ObjectMapper mapper = new ObjectMapper();
-    BufferedWriter writer = new BufferedWriter(new FileWriter("/tmp/test-results.json"));
+    BufferedWriter writer = new BufferedWriter(new FileWriter("./test-results.json"));
     mapper.writeValue(writer, result);
-    writer.close();
-        
-    LOG.log(Level.INFO, "{0} tests have been run.", result.getRunCount());
-    LOG.log(Level.INFO, "{0} failures have been reported", result.getFailureCount());
-    for (Failure failure : result.getFailures()) {
-      LOG.log(Level.INFO, "{0}, {1}", new Object[]{failure.getDescription(), failure.getMessage()});
-    }
+    writer.close();        
   }
 
 }
