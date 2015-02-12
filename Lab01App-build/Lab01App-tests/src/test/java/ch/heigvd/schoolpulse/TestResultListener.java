@@ -54,7 +54,7 @@ public class TestResultListener extends RunListener {
   @Override
   public void testRunFinished(Result result) throws Exception {
     ObjectMapper mapper = new ObjectMapper();
-    BufferedWriter writer = new BufferedWriter(new FileWriter("./test-results.json"));
+    BufferedWriter writer = new BufferedWriter(new FileWriter("../../../test-results.json"));
     mapper.writeValue(writer, result);
     writer.close();        
   }
