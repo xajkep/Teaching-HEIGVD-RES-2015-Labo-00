@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.Date;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -14,7 +13,6 @@ import javax.ws.rs.core.Response;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.junit.runner.Description;
 import org.junit.runner.Result;
-import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunListener;
 
 /**
@@ -39,7 +37,6 @@ public class TestResultListener extends RunListener {
 
   @Override
   public void testRunStarted(Description description) throws Exception {
-    //LOG.log(Level.INFO, System.getProperty("schoolPulseUserId"));
     Event[] payload = new Event[1];
     Event e1 = new Event();
     e1.setSource("RES");
@@ -48,13 +45,17 @@ public class TestResultListener extends RunListener {
     e1.set("who", "olivier");
     e1.set("pulseId", System.getProperty("schoolPulseUserId"));
     payload[0] = e1;
+    try {
     Response response = target.request().post(Entity.json(payload));
+    } catch (Exception e) {
+      LOG.info("Are you connected to the network? It is better to run the tests when you have an Internet connection.");
+    }
   }
 
   @Override
   public void testRunFinished(Result result) throws Exception {
     ObjectMapper mapper = new ObjectMapper();
-    BufferedWriter writer = new BufferedWriter(new FileWriter("../../../test-results.json"));
+    BufferedWriter writer = new BufferedWriter(new FileWriter("test-results.json"));
     mapper.writeValue(writer, result);
     writer.close();        
   }
