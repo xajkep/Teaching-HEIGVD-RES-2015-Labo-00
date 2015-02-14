@@ -312,8 +312,21 @@ git commit -m "Implementation of xxx according to specification"
 
 # Finally, we want to send the commit to the fork, so that it is visible
 # for other users
+
 git push origin master
 ```
+
+Last but not least, we ask you to make a **pull request**. In a typical open source project, the following workflow is used by contributors:
+
+1. The contributor wants to **make a contribution** (create a new feature, fix a bug, contribute to the documentation), so he **creates a fork**.
+2. (*optional*) The contributor creates a **feature branch**.
+3. The contributor **implements** a new feature or fixes a bug in his fork.
+4. The contributor **does not have write access on the upstream server** (the original repo for the open source project)
+5. For this reason, he **asks** the people who have the right to commit code on the upstream server to **pull** changes from the fork
+6. On GitHub, this is not done by phone or email, but via the Web UI. On the fork home page, there is "Pull Requests" menu. Clicking on the green button labeled *New pull request* initiates the process.
+7. The committers review the submitted commits. They can add line-by-line comments, discuss with the contributor, etc. In the end, **they may accept or reject the pull request**.
+
+In our workflow, we will most likely **not** accept your pull requests. However, having a pull request is a nice way to **notify us** that you are done with the implementation. It also give us a mechanism to give you **line-by-line feedback**.
 
 
 ### FAQ
