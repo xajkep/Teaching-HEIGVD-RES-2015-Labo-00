@@ -153,21 +153,21 @@ Before opening Netbeans, let's build our software from the command line. To do t
 ```
 $ cd Teaching-HEIGVD-RES-2015-Labo1/
 $ ls
-LICENSE		Lab01App-build	README.md
-$ cd Lab01App-build/
+LICENSE		Lab00App-build	README.md
+$ cd Lab00App-build/
 $ ls
-Lab01App-code	Lab01App-tests	pom.xml
+Lab00App-code	Lab00App-tests	pom.xml
 $ mvn clean install
 [INFO] Scanning for projects...
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
 [INFO] 
-[INFO] Lab01App-code
-[INFO] Lab01App-tests
-[INFO] Lab01App-build
+[INFO] Lab00App-code
+[INFO] Lab00App-tests
+[INFO] Lab00App-build
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Lab01App-code 1.0-SNAPSHOT
+[INFO] Building Lab00App-code 1.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 ...
@@ -179,15 +179,15 @@ If you go back in the terminal (and that is one first example that shows how imp
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running ch.heigvd.res.lab01.ApplicationTest
-Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE! - in ch.heigvd.res.lab01.ApplicationTest
-thereShouldBeAMethodToAddIntegers(ch.heigvd.res.lab01.ApplicationTest)  Time elapsed: 0 sec  <<< FAILURE!
+Running ch.heigvd.res.lab00.ApplicationTest
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE! - in ch.heigvd.res.lab00.ApplicationTest
+thereShouldBeAMethodToAddIntegers(ch.heigvd.res.lab00.ApplicationTest)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<42> but was:<80>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
 	at org.junit.Assert.assertEquals(Assert.java:645)
 	at org.junit.Assert.assertEquals(Assert.java:631)
-	at ch.heigvd.res.lab01.ApplicationTest.thereShouldBeAMethodToAddIntegers(ApplicationTest.java:53)
+	at ch.heigvd.res.lab00.ApplicationTest.thereShouldBeAMethodToAddIntegers(ApplicationTest.java:53)
 
 
 Results :
@@ -201,8 +201,8 @@ Tests run: 5, Failures: 1, Errors: 0, Skipped: 0
 Very interesting: we see that 5 tests have been successfully run and that one has failed. We see that there seems to be a bug in the method that computes the sum between two integers... Indeed, if we look at the code, we see that the code of the `add(int a, int b)` method is wrong:
 
 ```
-$ cat Lab01App-code/src/main/java/ch/heigvd/res/lab01/Application.java 
-package ch.heigvd.res.lab01;
+$ cat Lab00App-code/src/main/java/ch/heigvd/res/lab00/Application.java 
+package ch.heigvd.res.lab00;
 
 /**
  * This is a very simple class used to demonstrate the specify-implement-validate
@@ -210,7 +210,7 @@ package ch.heigvd.res.lab01;
  * compile. There is a bug in the add method, so one of the tests is expected
  * to fail.
  * 
- * If you look at the class named ch.heigvd.res.lab01.ApplicationTest, you will
+ * If you look at the class named ch.heigvd.res.lab00.ApplicationTest, you will
  * find an executable specification for this class. The test methods specify
  * the expected behavior for this class.
  * 
@@ -245,8 +245,8 @@ After fixing the bug, we do another `mvn clean install` and this time, we see th
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running ch.heigvd.res.lab01.ApplicationTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in ch.heigvd.res.lab01.ApplicationTest
+Running ch.heigvd.res.lab00.ApplicationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in ch.heigvd.res.lab00.ApplicationTest
 
 Results :
 
@@ -264,7 +264,7 @@ aTrumpetShouldMakePouet
 aTrumpetShouldBeLouderThanAFlute
 aTrumpetShouldBeGolden
 ```
-To get all the details of the specification, you will have to take a close look at the body of the methods, such as this one. It should be pretty straightforward to determine what you have to implement in the `Lab01App-code` project (do **not** add the application classes in the `Lab01-App-tests` project!).
+To get all the details of the specification, you will have to take a close look at the body of the methods, such as this one. It should be pretty straightforward to determine what you have to implement in the `Lab00App-code` project (do **not** add the application classes in the `Lab00-App-tests` project!).
 
 ```
   @Test
@@ -277,11 +277,11 @@ To get all the details of the specification, you will have to take a close look 
 
 What we have done in the terminal can also be done directly in Netbeans:
 
-- open the Lab01App-build project
+- open the Lab00App-build project
 
-- right-click on the Lab01App-build node in the Project tab and select *Open Required Project > Open All Projects*
+- right-click on the Lab00App-build node in the Project tab and select *Open Required Project > Open All Projects*
 
-- righ-click on the Lab01App-build node and select *Test*
+- righ-click on the Lab00App-build node and select *Test*
 
 You will see the following output in the IDE tabs. In the *Output* tab, you will see the same output that was generated when invoking maven on the command line. In the *Test Results* tab, you will see a user friendly visual representation of the test results. 
 
