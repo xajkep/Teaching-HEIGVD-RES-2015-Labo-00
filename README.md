@@ -25,7 +25,7 @@ For Mac OS users, [here](http://stackoverflow.com/questions/6588390/where-is-jav
 
 #### 2.2. Install apache maven
 
-![image](./diagrams/netbean-logo.png)
+![image](./diagrams/maven-logo.png)
 
 Apache maven is a software development tool that is extremely popular in the Java community. As a matter of fact, if you work in a professional environment or contribute to an open source project, there is *no way* that you will escape it.
 
@@ -61,7 +61,7 @@ In your home directory, there is a hidden directory named `.m2`. It contains a f
 
 #### 2.3. Install NetBeans
 
-![image](./diagrams/netbean-logo.png)
+![image](./diagrams/netbeans-logo.png)
 
 
 In this course, we will be writing a lot of code, mostly in Java. We use Netbeans to prepare that labs and samples. So, if you use Netbeans, your life will be easier. If you prefer to use another IDE, that should be fine for most of the labs (we will let you know otherwise). But we will not be able to provide individual support for all IDEs, so you have to be ready to investigate issues on your own.
