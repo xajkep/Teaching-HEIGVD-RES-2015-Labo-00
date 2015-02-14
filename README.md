@@ -86,7 +86,7 @@ In your home directory, there is a hidden directory named `.m2`. It contains a f
 ![image](./diagrams/netbeans-logo.png)
 
 
-In this course, we will be writing a lot of code, mostly in Java. We use Netbeans to prepare that labs and samples. So, if you use Netbeans, your life will be easier. If you prefer to use another IDE, that should be fine for most of the labs (we will let you know otherwise). But we will not be able to provide individual support for all IDEs, so you have to be ready to investigate issues on your own.
+In this course, we will be writing a lot of code, mostly in Java. We use Netbeans to prepare the labs and samples. So, if you use Netbeans, your life will be easier. If you prefer to use another IDE, that should be fine for most of the labs (we will let you know otherwise). But we will not be able to provide individual support for all IDEs, so you have to be ready to investigate issues on your own.
 
 #### 2.4. Install and get familiar with a *real* command line tool
 
@@ -135,32 +135,204 @@ Ok, now that your environment is setup, **time to get to the real work**. For th
 
 ### Task : Understand the project structure
 
+If you have followed the previous instructions, then you should now have a clone of your fork on your machine, in a directory named `Teaching-HEIGVD-RES-2015-Labo1`. Let's check what is inside:
+
+![image](./diagrams/project-structure.png)
+
+If you look carefully, you will see that there are 3 files named `pom.xml` in the directory structure. These files are used by **maven** and you can think of them as 3 recipes for building our application. As indicated in the diagram, we have actually 3 projects. One with the application code, one with the automated tests and one on top of them. What we are going to do is build the top-level project. Maven will automatically compile the application code, compile the test code, run the tests and give us results. If all tests pass, then Maven will also producer a .jar file.
+
 ![image](./diagrams/maven-projects.png)
 
 -----
 
 
-```
-mvn clean test
-```
-
 ### Task 5 : Develop the Java code according to the executable specification
 
-#### 5.1 : Run the JUnit automated tests
-#### 5.2 : Fix the broken JUnit tests
-#### 5.3 : Activate the TrumpetTest.java tests
-#### 5.4 : Develop the Java code iteratively
+Before opening Netbeans, let's build our software from the command line. To do that, we have to move into the top-level project, where the first `pom.xml` file is located and type the following command: `mvn clean install`. By doing that, we are asking maven to clean the workspace and to start the build process. You will see a long output on the console, starting with this:
 
 ```
-mvn clean test
+$ cd Teaching-HEIGVD-RES-2015-Labo1/
+$ ls
+LICENSE		Lab01App-build	README.md
+$ cd Lab01App-build/
+$ ls
+Lab01App-code	Lab01App-tests	pom.xml
+$ mvn clean install
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Lab01App-code
+[INFO] Lab01App-tests
+[INFO] Lab01App-build
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Lab01App-code 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+...
 ```
+
+If you go back in the terminal (and that is one first example that shows how important it is to have a proper command line tool!), you will notice the following section:
+
+```
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running ch.heigvd.res.lab01.ApplicationTest
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE! - in ch.heigvd.res.lab01.ApplicationTest
+thereShouldBeAMethodToAddIntegers(ch.heigvd.res.lab01.ApplicationTest)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<42> but was:<80>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at ch.heigvd.res.lab01.ApplicationTest.thereShouldBeAMethodToAddIntegers(ApplicationTest.java:53)
+
+
+Results :
+
+Failed tests: 
+  ApplicationTest.thereShouldBeAMethodToAddIntegers:53 expected:<42> but was:<80>
+
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0
+```
+
+Very interesting: we see that 5 tests have been successfully run and that one has failed. We see that there seems to be a bug in the method that computes the sum between two integers... Indeed, if we look at the code, we see that the code of the `add(int a, int b)` method is wrong:
+
+```
+$ cat Lab01App-code/src/main/java/ch/heigvd/res/lab01/Application.java 
+package ch.heigvd.res.lab01;
+
+/**
+ * This is a very simple class used to demonstrate the specify-implement-validate
+ * cycle. All methods used in the JUnit test are defined, so the test class will
+ * compile. There is a bug in the add method, so one of the tests is expected
+ * to fail.
+ * 
+ * If you look at the class named ch.heigvd.res.lab01.ApplicationTest, you will
+ * find an executable specification for this class. The test methods specify
+ * the expected behavior for this class.
+ * 
+ * @author Olivier Liechti
+ */
+public class Application {
+
+  private String message;
+
+  public Application() {
+    this("HEIG-VD rocks!");
+  }
+
+  public Application(String message) {
+    this.message = message;
+  }
+
+  public String getMessage() {
+    return message;
+  }
+
+  public int add(int a, int b) {
+    return a * b;
+  }
+
+}
+```
+
+After fixing the bug, we do another `mvn clean install` and this time, we see the following output:
+
+```
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running ch.heigvd.res.lab01.ApplicationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in ch.heigvd.res.lab01.ApplicationTest
+
+Results :
+
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+```
+
+Sweet. Our implementation now is compliant with the executable specification. Well, that's because some unit tests have been commented out. Open the `TrumpetTest.java` file and uncomment the unit tests. Note that if you try to build the project now, it will fail. The reason is that the tests specify that you should have created interfaces and classes. You have not done that yet, and it is your assignment in this lab. 
+
+If you read the name of the test methods, you will see that they are a way to specify the expected behavior of your application (that is why we speak of executable specification):
+
+```
+thereShouldBeAnIInstrumentInterfaceAndATrumpetClass
+itShouldBePossibleToPlayAnInstrument
+aTrumpetShouldMakePouet
+aTrumpetShouldBeLouderThanAFlute
+aTrumpetShouldBeGolden
+```
+To get all the details of the specification, you will have to take a close look at the body of the methods, such as this one. It should be pretty straightforward to determine what you have to implement in the `Lab01App-code` project (do **not** add the application classes in the `Lab01-App-tests` project!).
+
+```
+  @Test
+  public void aTrumpetShouldMakePouet() {
+    IInstrument trumpet = new Trumpet();
+    String sound = trumpet.play();
+    Assert.assertEquals("pouet", sound);
+  }
+```
+
+What we have done in the terminal can also be done directly in Netbeans:
+
+- open the Lab01App-build project
+
+- right-click on the Lab01App-build node in the Project tab and select *Open Required Project > Open All Projects*
+
+- righ-click on the Lab01App-build node and select *Test*
+
+You will see the following output in the IDE tabs. In the *Output* tab, you will see the same output that was generated when invoking maven on the command line. In the *Test Results* tab, you will see a user friendly visual representation of the test results. 
+
+**After cloning the repo, you see 4 green tests and 1 red test. When you have finished the lab, you should see 10 green tests.
+
+![image](./diagrams/netbeans.png)
+
 
 ### Task 6 : Submit your results
 
+When you are done, you have to make sure that you push your changes to your fork hosted on GitHub. Indeed, to check your work, we will get the last version of your fork and run our test suite on your code.
+
+Typically, what you will do is the following:
+
+```
+# We have modified several local files. We want to take a snapshot
+# of files xxx.java and xx2.java and add it to the project history
+
+git add xxx.java
+git add xx2.java
 
 
+# The staging area contains the 2 files. We can now create a local
+# commit and provide a message
+
+git commit -m "Implementation of xxx according to specification"
 
 
+# Finally, we want to send the commit to the fork, so that it is visible
+# for other users
+git push origin master
+```
+
+
+### FAQ
+
+#### If the authors of the original repository make updates, how do I get them?
+
+Let us imagine that we find a bug somewhere in the **SoftEng-HEIGVD/Teaching-HEIGVD-RES-2015-Labo1** repo. We want to fix it and make sure that all students can get the fix in their own fork. How do we do that? 
+
+This operation cannot be done via the Web UI, but it is fairly easy and well documented. First, you have to [configure an upstream server](https://help.github.com/articles/configuring-a-remote-for-a-fork/). Then, you can [sync](https://help.github.com/articles/syncing-a-fork/) your local close with the upstream server. Finally, you can [push](https://help.github.com/articles/pushing-to-a-remote/) the update to your fork. 
+
+![image](./diagrams/upstream.png)
+
+#### I am lost with these git commands, where I can find help?
+
+There are many resources available, here are a few suggestions:
+
+* There is a great documentation provided by Atlassian [here](https://www.atlassian.com/git/tutorials/setting-up-a-repository). It starts with simple concepts and commands, but goes to fairly advanced topics.
+
+* GitHub also provides really useful information, [here](https://help.github.com/categories/bootcamp/), [here](https://help.github.com/articles/good-resources-for-learning-git-and-github/) and [here](https://training.github.com/kit/).
 
 
 
