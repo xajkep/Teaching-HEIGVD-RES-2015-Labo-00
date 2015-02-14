@@ -1,24 +1,61 @@
-### Step 1 : Get your IDs and register
+### Introduction
 
-1. Register on GitHub
-2. Register on CyberLearn
-3. Register on StackOverflow
-4. Register on SchoolPulse
+* **Task 1** :
+* **Task 2** :
+* **Task 3** :
+
+-----
+
+### Task 1 : Register on services and get your IDs
+
+1. If you don't have a GitHub account yet, get one [here](https://github.com/).
+2. If you have not registered on CyberLearn (moodle), register [here](http://cyberlearn.hes-so.ch/course/view.php?id=6971) (the password is *heigvdrocks*).
+3. If you don't have a StackOverflow account yet, get one [here](https://www.stackoverflow.com).
 
 
-### Step 1 : Setup the environment
+### Task 2 : Setup the environment
 
 In this lab, we will start by installing some of the tools that we will be using during the semester. Something that is very important (not only for this course) is to have a proper command line tool installed.
 
-#### Make sure that you have a JDK 1.8 installed
+#### 1. Make sure that you have a JDK 1.8 installed
 
-#### Install apache maven
+You should use Java 8. Depending on the platform, it can be a bit tricky to figure out which JDK is actually used when you run a Java application. When you build the same project in Netbeans or on the command line, it is possible that a different version of the JDK is actually used. Keep this in mind if you encounter issues (maven might complain).
+
+For Mac OS users, [here](http://stackoverflow.com/questions/6588390/where-is-java-home-on-osx-yosemite-10-10-mavericks-10-9-mountain-lion-10) and [there](http://stackoverflow.com/questions/17824889/how-to-force-maven-3-1-to-use-right-version-of-java-on-mac-os-8-10), you will find useful information.
+
+#### 2. Install apache maven
 
 Apache maven is a software development tool that is extremely popular in the Java community. As a matter of fact, if you work in a professional environment or contribute to an open source project, there is *no way* that you will escape it.
 
 While our goal is not to make you a maven expert in this course, we want you to get familiar with it. You will use maven to build, test and run your projects, so it is important that you have a high-level understanding of what it does.
 
 If you have used Makefiles, ant scripts or Grunt.js, you are already familiar with the notion of **software build automation**. Simply stated, maven is used to write recipes for transforming source code into running software. It manages the entire build cycle, which includes tasks such as compilation, unit testing, integration testing, code quality checks, packaging and deployment.
+
+
+In your home directory, there is a hidden directory named `.m2`. It contains a file named `settings.xml`, which is used to configure various aspects of your maven installation.
+
+```
+~/.m2/settings.xml
+```
+
+```
+<settings>
+...
+  <profiles>
+    <profile>
+      <id>schoolPulse</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <ch.heigvd.schoolpulse.userid>wasadigi</ch.heigvd.schoolpulse.userid>
+      </properties>
+    </profile>
+...
+  </profiles>
+...
+</settings>
+```
 
 #### Install NetBeans
 
@@ -55,6 +92,9 @@ For the labs, we will be using a collaborative development workflow. You have to
 4. *We know where you live*. After submission, we have access to your repos. We have our own suite of automated tests, which we will use to check your work.
 
 
+### Step : Understand the project structure
+
+![image](./diagrams/maven-projects.png)
 
 ### Step 4 : Run the JUnit automated tests
 
