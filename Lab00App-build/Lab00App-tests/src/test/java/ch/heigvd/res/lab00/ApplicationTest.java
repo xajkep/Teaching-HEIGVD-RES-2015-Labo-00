@@ -1,6 +1,6 @@
-package ch.heigvd.res.lab01;
+package ch.heigvd.res.lab00;
 
-import ch.heigvd.res.lab01.Application;
+import ch.heigvd.res.lab00.Application;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

@@ -1,4 +1,4 @@
-package ch.heigvd.res.lab01;
+package ch.heigvd.res.lab00;
 
 /**
  * This is a very simple class used to demonstrate the specify-implement-validate
