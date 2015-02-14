@@ -53,7 +53,7 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{346.5, 511}, {188, 114.5}}</string>
+			<string>{{346.5, 511}, {188, 56}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -108,7 +108,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{669.04547119140625, 506.24337768554688}, {188, 193.25662231445312}}</string>
+			<string>{{621.07152557373047, 506.24337768554688}, {270.97393798828125, 104.25662231445312}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -172,7 +172,7 @@ This is what you use to
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{99, 118.06330871582031}, {188, 89.567337036132812}}</string>
+			<string>{{188, 91.126617431640625}, {125, 89.567337036132812}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -234,8 +234,8 @@ This is what you use to
 			<integer>30</integer>
 			<key>Points</key>
 			<array>
-				<string>{282, 318.44639587402344}</string>
-				<string>{321.31990051269531, 318.44639587402344}</string>
+				<string>{282, 326.66636657714844}</string>
+				<string>{321.31990051269531, 326.66636657714844}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -256,7 +256,7 @@ This is what you use to
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{85, 297.17741394042969}, {188, 89.567337036132812}}</string>
+			<string>{{185, 230.85508728027344}, {109.5, 213.82258605957031}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -318,8 +318,8 @@ This is what you use to
 			<integer>28</integer>
 			<key>Points</key>
 			<array>
-				<string>{889.99999999999989, 318.44638824462891}</string>
-				<string>{719.99999999999989, 318.44638824462891}</string>
+				<string>{855.98058319091786, 318.44638824462891}</string>
+				<string>{685.98058319091786, 318.44638824462891}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -340,7 +340,7 @@ This is what you use to
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{900.99999999999989, 297.17743682861328}, {188, 89.567337036132812}}</string>
+			<string>{{866.98058319091786, 241.13980865478516}, {99, 170.21311950683594}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -491,7 +491,7 @@ This is what you use to
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{573.16968154907215, 314.22637914842176}, {47, 13.44}}</string>
+			<string>{{559.00000381469715, 314.22637914842176}, {47, 13.44}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -540,8 +540,8 @@ This is what you use to
 			<integer>20</integer>
 			<key>Points</key>
 			<array>
-				<string>{613.48959732055653, 337.26637914842172}</string>
-				<string>{574.16969680786121, 337.26637914842172}</string>
+				<string>{599.31991958618153, 337.26637914842172}</string>
+				<string>{560.00001907348621, 337.26637914842172}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -560,7 +560,7 @@ This is what you use to
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{655.09094238281239, 410.10220312303113}, {215.9090576171875, 70}}</string>
+			<string>{{621.07152557373036, 410.10220312303113}, {215.9090576171875, 70}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -752,7 +752,7 @@ Maven figures out that it is necessary first to build the code project, then the
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{655.09094238281239, 313.96108984178113}, {205, 70}}</string>
+			<string>{{621.07152557373036, 313.96108984178113}, {205, 70}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -928,7 +928,7 @@ Maven figures out that it is necessary first to build the code project, then the
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{647.33936262998964, 257.53165435791016}, {223.66063737001031, 137.42942810058591}}</string>
+			<string>{{613.31994582090761, 257.53165435791016}, {223.66063737001031, 137.42942810058591}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -1058,7 +1058,7 @@ Maven figures out that it is necessary first to build the code project, then the
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{328.99999999999977, 113.53165435791016}, {542, 88.929435483870989}}</string>
+			<string>{{328.99999999999966, 113.53165435791016}, {507.9805831909182, 88.929435483870989}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FontInfo</key>
@@ -1169,7 +1169,7 @@ Maven figures out that it is necessary first to build the code project, then the
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2015-02-14 09:16:11 +0000</string>
+	<string>2015-02-14 09:27:36 +0000</string>
 	<key>Modifier</key>
 	<string>Olivier Liechti</string>
 	<key>NotesVisible</key>
