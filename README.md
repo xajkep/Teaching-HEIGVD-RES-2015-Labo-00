@@ -1,29 +1,31 @@
 ### Introduction
 
-* **Task 1** :
-* **Task 2** :
+* **Task 1** : Register on services and get your IDs
+* **Task 2** : Setup the environment
 * **Task 3** :
 
 -----
 
 ### Task 1 : Register on services and get your IDs
 
-1. If you don't have a GitHub account yet, get one [here](https://github.com/).
-2. If you have not registered on CyberLearn (moodle), register [here](http://cyberlearn.hes-so.ch/course/view.php?id=6971) (the password is *heigvdrocks*).
-3. If you don't have a StackOverflow account yet, get one [here](https://www.stackoverflow.com).
+1. If you don't have a **GitHub** account yet, get one [here](https://github.com/).
+2. If you have not registered on **CyberLearn (moodle)**, register [here](http://cyberlearn.hes-so.ch/course/view.php?id=6971) (the password is *heigvdrocks*).
+3. If you don't have a **StackOverflow** account yet, get one [here](https://www.stackoverflow.com).
 
 
 ### Task 2 : Setup the environment
 
 In this lab, we will start by installing some of the tools that we will be using during the semester. Something that is very important (not only for this course) is to have a proper command line tool installed.
 
-#### 1. Make sure that you have a JDK 1.8 installed
+#### 2.1. Make sure that you have a JDK 1.8 installed
 
 You should use Java 8. Depending on the platform, it can be a bit tricky to figure out which JDK is actually used when you run a Java application. When you build the same project in Netbeans or on the command line, it is possible that a different version of the JDK is actually used. Keep this in mind if you encounter issues (maven might complain).
 
 For Mac OS users, [here](http://stackoverflow.com/questions/6588390/where-is-java-home-on-osx-yosemite-10-10-mavericks-10-9-mountain-lion-10) and [there](http://stackoverflow.com/questions/17824889/how-to-force-maven-3-1-to-use-right-version-of-java-on-mac-os-8-10), you will find useful information.
 
-#### 2. Install apache maven
+#### 2.2. Install apache maven
+
+![image](./diagrams/netbean-logo.png)
 
 Apache maven is a software development tool that is extremely popular in the Java community. As a matter of fact, if you work in a professional environment or contribute to an open source project, there is *no way* that you will escape it.
 
@@ -57,11 +59,14 @@ In your home directory, there is a hidden directory named `.m2`. It contains a f
 </settings>
 ```
 
-#### Install NetBeans
+#### 2.3. Install NetBeans
+
+![image](./diagrams/netbean-logo.png)
+
 
 In this course, we will be writing a lot of code, mostly in Java. We use Netbeans to prepare that labs and samples. So, if you use Netbeans, your life will be easier. If you prefer to use another IDE, that should be fine for most of the labs (we will let you know otherwise). But we will not be able to provide individual support for all IDEs, so you have to be ready to investigate issues on your own.
 
-#### Install and get familiar with a *real* command line tool
+#### 2.4. Install and get familiar with a *real* command line tool
 
 
 #### Check that you can do a tail
