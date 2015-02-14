@@ -328,6 +328,7 @@ Last but not least, we ask you to make a **pull request**. In a typical open sou
 
 In our workflow, we will most likely **not** accept your pull requests. However, having a pull request is a nice way to **notify us** that you are done with the implementation. It also give us a mechanism to give you **line-by-line feedback**.
 
+----
 
 ### FAQ
 
