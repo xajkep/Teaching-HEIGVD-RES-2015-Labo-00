@@ -266,7 +266,7 @@ aTrumpetShouldBeGolden
 ```
 To get all the details of the specification, you will have to take a close look at the body of the methods, such as this one. It should be pretty straightforward to determine what you have to implement in the `Lab00App-code` project (do **not** add the application classes in the `Lab00-App-tests` project!).
 
-```
+```java
   @Test
   public void aTrumpetShouldMakePouet() {
     IInstrument trumpet = new Trumpet();
@@ -296,7 +296,7 @@ When you are done, you have to make sure that you push your changes to your fork
 
 Typically, what you will do is the following:
 
-```
+```bash
 # We have modified several local files. We want to take a snapshot
 # of files xxx.java and xx2.java and add it to the project history
 
