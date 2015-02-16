@@ -62,7 +62,7 @@ In your home directory, there is a hidden directory named `.m2`. It contains a f
 ~/.m2/settings.xml
 ```
 
-```
+```xml
 <settings>
 ...
   <profiles>
@@ -92,9 +92,9 @@ In this course, we will be writing a lot of code, mostly in Java. We use Netbean
 
 ![image](./diagrams/terminal-logo.png)
 
-From what we have seen over the last few years, many students are not familiar or **comfortable with a terminal and command line tools**. This is particularly true for students using Windows as their main operating system. Launching `cmd.exe` is not something very usual, and once in the terminal, it is not very easy nor practical to get work done.
+From what we have seen over the last few years, many students are not familiar or **comfortable with a terminal and command line tools**. This is particularly true for students using Windows as their main operating system. Launching `cmd.exe` is not something very common, and once in the terminal, it is not very easy nor practical to get work done.
 
-**If you are in this situation, then it is now time to get familiar with proper tools**. This will make you a lot more productive. It will save you time during labs (not only in this course). It will allow you to do things in a cleaner and more efficient way. 
+**If you are in this situation, then it is now time to get familiar with proper tools**. This will make you a lot more productive. It will save you time during labs (not only in this course). It will allow you to do things in a cleaner and more efficient way.
 
 **You do not have to be a shell guru**. Even with a couple of commands, you will quickly see the benefits. **Please, please** take the time to learn how to use this crucial tool.
 
@@ -122,7 +122,7 @@ Ok, now that your environment is setup, **time to get to the real work**. For th
 
 ![image](./diagrams/forkvsclone.png)
 
-1. We will create **one GitHub repo for every lab**. This repo will contain the instructions, a code skeleton. Often, we will provide a collection of JUnit tests that will allow us to **specify**, **validate** and **grade** your projects. If you try to run the JUnit tests at the beginning of the project, most of them should fail (they might not even compile). Reading the code of the tests will let you know what we expect from you (the tests are an **executable specification**).
+1. We will create **one GitHub repo for every lab**. This repo will contain the instructions and a code skeleton. Often, we will provide a collection of JUnit tests that will allow us to **specify**, **validate** and **grade** your projects. If you try to run the JUnit tests at the beginning of the project, most of them should fail (they might not even compile). Reading the code of the tests will let you know what we expect from you (the tests are an **executable specification**).
 
 2. You will **fork** the lab repo. Read this sentence again very carefully: we said **fork** and **not clone**. Forking the lab repo means that you will have your own copy of the lab repo hosted on GitHub, so that you can work independently. You will then **clone your fork** on your machine. Once again, what you are cloning is your fork, not the original repo. Got it?
 
@@ -139,7 +139,7 @@ If you have followed the previous instructions, then you should now have a clone
 
 ![image](./diagrams/project-structure.png)
 
-If you look carefully, you will see that there are 3 files named `pom.xml` in the directory structure. These files are used by **maven** and you can think of them as 3 recipes for building our application. As indicated in the diagram, we have actually 3 projects. One with the application code, one with the automated tests and one on top of them. What we are going to do is build the top-level project. Maven will automatically compile the application code, compile the test code, run the tests and give us results. If all tests pass, then Maven will also producer a .jar file.
+If you look carefully, you will see that there are 3 files named `pom.xml` in the directory structure. These files are used by **maven** and you can think of them as 3 recipes for building our application. As indicated in the diagram, we actually have 3 projects. One with the application code, one with the automated tests and one on top of them. What we are going to do is build the top-level project. Maven will automatically compile the application code, compile the test code, run the tests and give us results. If all tests pass, then Maven will also produce a .jar file.
 
 ![image](./diagrams/maven-projects.png)
 
@@ -200,7 +200,7 @@ Tests run: 5, Failures: 1, Errors: 0, Skipped: 0
 
 Very interesting: we see that 5 tests have been successfully run and that one has failed. We see that there seems to be a bug in the method that computes the sum between two integers... Indeed, if we look at the code, we see that the code of the `add(int a, int b)` method is wrong:
 
-```
+```java
 $ cat Lab00App-code/src/main/java/ch/heigvd/res/lab00/Application.java 
 package ch.heigvd.res.lab00;
 
@@ -285,7 +285,7 @@ What we have done in the terminal can also be done directly in Netbeans:
 
 You will see the following output in the IDE tabs. In the *Output* tab, you will see the same output that was generated when invoking maven on the command line. In the *Test Results* tab, you will see a user friendly visual representation of the test results. 
 
-**After cloning the repo, you see 4 green tests and 1 red test. When you have finished the lab, you should see 10 green tests.
+**After cloning the repo, you see 4 green tests and 1 red test. When you have finished the lab, you should see 10 green tests.**
 
 ![image](./diagrams/netbeans.png)
 
@@ -323,7 +323,7 @@ Last but not least, we ask you to make a **pull request**. In a typical open sou
 3. The contributor **implements** a new feature or fixes a bug in his fork.
 4. The contributor **does not have write access on the upstream server** (the original repo for the open source project)
 5. For this reason, he **asks** the people who have the right to commit code on the upstream server to **pull** changes from the fork
-6. On GitHub, this is not done by phone or email, but via the Web UI. On the fork home page, there is "Pull Requests" menu. Clicking on the green button labeled *New pull request* initiates the process.
+6. On GitHub, this is not done by phone or email, but via the Web UI. On the fork home page, there is a "Pull Requests" menu. Clicking on the green button labeled *New pull request* initiates the process.
 7. The committers review the submitted commits. They can add line-by-line comments, discuss with the contributor, etc. In the end, **they may accept or reject the pull request**.
 
 In our workflow, we will most likely **not** accept your pull requests. However, having a pull request is a nice way to **notify us** that you are done with the implementation. It also give us a mechanism to give you **line-by-line feedback**.
@@ -336,7 +336,7 @@ In our workflow, we will most likely **not** accept your pull requests. However,
 
 Let us imagine that we find a bug somewhere in the **SoftEng-HEIGVD/Teaching-HEIGVD-RES-2015-Labo1** repo. We want to fix it and make sure that all students can get the fix in their own fork. How do we do that? 
 
-This operation cannot be done via the Web UI, but it is fairly easy and well documented. First, you have to [configure an upstream server](https://help.github.com/articles/configuring-a-remote-for-a-fork/). Then, you can [sync](https://help.github.com/articles/syncing-a-fork/) your local close with the upstream server. Finally, you can [push](https://help.github.com/articles/pushing-to-a-remote/) the update to your fork. 
+This operation cannot be done via the Web UI, but it is fairly easy and well documented. First, you have to [configure an upstream server](https://help.github.com/articles/configuring-a-remote-for-a-fork/). Then, you can [sync](https://help.github.com/articles/syncing-a-fork/) your local clone with the upstream server. Finally, you can [push](https://help.github.com/articles/pushing-to-a-remote/) the update to your fork. 
 
 ![image](./diagrams/upstream.png)
 
