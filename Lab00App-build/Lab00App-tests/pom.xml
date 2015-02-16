@@ -25,7 +25,7 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>Lab01App-code</artifactId>
+      <artifactId>Lab00App-code</artifactId>
       <version>${project.version}</version>
       <scope>test</scope>
     </dependency>
