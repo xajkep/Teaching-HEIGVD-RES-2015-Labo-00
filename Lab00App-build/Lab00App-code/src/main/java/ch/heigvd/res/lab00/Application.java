@@ -1,5 +1,29 @@
 package ch.heigvd.res.lab00;
 
+interface IInstrument {
+    public String play();
+    public int getSoundVolume();
+    public String getColor();
+}
+class Trumpet implements IInstrument {
+	Trumpet() {}
+
+	public String play() {return "pouet";}
+
+	public int getSoundVolume() { return 10; }
+
+	public String getColor() { return "golden"; }
+}
+
+class Flute implements IInstrument {
+	Flute() {}
+
+	public String play() {return "";}
+	public int getSoundVolume() { return 2; }
+	public String getColor() { return "brown"; }
+}
+
+
 /**
  * This is a very simple class used to demonstrate the specify-implement-validate
  * cycle. All methods used in the JUnit test are defined, so the test class will
@@ -29,7 +53,7 @@ public class Application {
   }
 
   public int add(int a, int b) {
-    return a * b;
+    return a + b;
   }
 
 }
